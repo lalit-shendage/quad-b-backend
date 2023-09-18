@@ -11,7 +11,6 @@ exports.getUserDetails = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Exclude sensitive fields like user_password and user_image
     const userDetails = {
       id: user.id,
       user_name: user.user_name,
@@ -111,7 +110,7 @@ exports.getImage = async (req, res) => {
     const imageBuffer = Buffer.from(user.user_image, 'base64');
 
     // Set the appropriate Content-Type for the response (e.g., image/jpeg, image/png)
-    res.setHeader('Content-Type', 'image/jpeg'); // Change the content type as per your image format
+    res.setHeader('Content-Type', 'image/jpeg'); 
 
     // Send the image as a response
     res.end(imageBuffer);
@@ -138,7 +137,6 @@ exports.insertUser = async (req, res) => {
       // Read the image file as binary data
       const imageBuffer = fs.readFileSync(newUserDetails.user_image_path);
 
-      // Convert the image data to a Base64 string
       userImageBase64 = imageBuffer.toString('base64');
     }
 

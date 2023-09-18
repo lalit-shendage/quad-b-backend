@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 const config = require('./config.json')[process.env.NODE_ENV || 'development'];
 
-// Create a Sequelize instance using the configuration from config.json
+
 const sequelize = new Sequelize(
   config.database,
   config.username,
@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
     host: config.host,
     dialect: config.dialect,
     port: config.port,
-    logging: false, // Disable SQL query logging (you can set it to true for debugging)
+    logging: false, 
   }
 );
 
